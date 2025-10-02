@@ -14,7 +14,7 @@ $args = [
     'orderby' => 'date',
     'meta_query' => [
         [
-            'key' => 'cn_post_cryptocurrency',
+            'key' => 'post_cryptocurrency',
             'value' => '',
             'compare' => '!='
         ]
@@ -68,11 +68,11 @@ if ($the_query->have_posts()) {
                     <guid><?php echo get_the_permalink(); ?></guid>
 
                     <?php
-                    $cryptocurrency_ids_array = get_field('cn_post_cryptocurrency');
+                    $cryptocurrency_ids_array = get_field('post_cryptocurrency');
 
                     foreach ($cryptocurrency_ids_array as $cryptocurrency_id){
 
-                        echo ' <category domain="tradingview:symbol">'.get_field('cn_cryptocurrency_tradingview_symbol', $cryptocurrency_id).'</category>';
+                        echo ' <category domain="tradingview:symbol">'.get_field('cryptocurrency_tradingview_symbol', $cryptocurrency_id).'</category>';
 
                     }
 
@@ -97,5 +97,6 @@ if ($the_query->have_posts()) {
 }
 
 wp_reset_postdata();
+
 
 ?>
